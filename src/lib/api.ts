@@ -33,3 +33,13 @@ export async function forgotPassword(email: string) {
     );
   }
 }
+
+export async function verifyOTP(email: string, otp: string) {
+  try {
+    const response = await api.post("/auth/verify-otp", { email, otp });
+    return response.data;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
+    throw new Error(error.response?.data?.message || "Failed to verify OTP");
+  }
+}

@@ -47,7 +47,7 @@ const ForgotPasswordPage = () => {
     setIsLoading(true);
     try {
       await forgotPassword(data.email);
-      router.push(`/verify-otp?email=${encodeURIComponent(data.email)}`);
+      router.push(`/auth/verify-otp?email=${encodeURIComponent(data.email)}`);
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       form.setError("email", {
@@ -68,7 +68,7 @@ const ForgotPasswordPage = () => {
       >
         <X size={20} strokeWidth={3} />
       </button>
-      <div className="bg-white p-8 sm:p-12 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] w-full max-w-137.5 border border-gray-50">
+      <div className="bg-white p-8 sm:p-12 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] w-full max-w-xl border border-gray-50">
         <div className="text-center mb-8">
           <div className="flex flex-col items-center gap-4">
             <Image
