@@ -20,3 +20,16 @@ api.interceptors.request.use(
   },
   (error) => Promise.reject(error),
 );
+
+// Auth API calls
+export async function forgotPassword(email: string) {
+  try {
+    const response = await api.post("/auth/forgot-password", { email });
+    return response.data;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
+    throw new Error(
+      error.response?.data?.message || "Failed to fetch approved properties",
+    );
+  }
+}
