@@ -64,7 +64,9 @@ const VerifyOtpPage = () => {
     setIsLoading(true);
     try {
       const res = await verifyOTP(email, data.pin);
-      router.push(`/reset-password?token=${encodeURIComponent(res.token)}`);
+      router.push(
+        `/reset-password?token=${encodeURIComponent(res.data.accessToken)}`,
+      );
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       form.setError("pin", { message: error.message || "Invalid code" });
