@@ -19,6 +19,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { resetPassword } from "@/lib/api";
+import { toast } from "sonner";
 
 // 1. Define Form Schema with Validation
 const resetSchema = z
@@ -60,7 +61,12 @@ const ResetPasswordPage = () => {
 
     setIsLoading(true);
     try {
-      await resetPassword(data.password, data.confirmPassword, token);
+      const response = await resetPassword(
+        data.password,
+        data.confirmPassword,
+        token,
+      );
+      toast.success(response.message || "Password reset successfully");
       router.push("/auth/login");
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {

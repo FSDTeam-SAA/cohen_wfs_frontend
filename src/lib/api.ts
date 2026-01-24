@@ -1,4 +1,5 @@
 import axios from "axios";
+import { access } from "fs";
 import { getSession } from "next-auth/react";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
@@ -50,18 +51,11 @@ export async function resetPassword(
   token: string,
 ) {
   try {
-    const response = await api.post(
-      "/auth/reset-password",
-      {
-        newPassword,
-        confirmPassword,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      },
-    );
+    const response = await api.post("/auth/reset-password", {
+      newPassword,
+      confirmPassword,
+      accessToken: token,
+    });
 
     return response.data;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
