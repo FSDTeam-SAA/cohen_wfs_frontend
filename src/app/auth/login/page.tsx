@@ -19,6 +19,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
+import { toast } from "sonner";
 
 // 1. Define Form Schema with Zod
 const loginSchema = z.object({
@@ -56,9 +57,7 @@ const LoginPage = () => {
       });
 
       if (result?.error) {
-        // Handle specific auth errors (e.g., wrong password)
-        console.error("Auth error:", result.error);
-        form.setError("root", { message: "Invalid email or password" });
+        toast.error("Invalid email or password. Please try again.");
       } else if (result?.ok) {
         // Manual redirect if necessary
         window.location.href = "/dashboard";
@@ -81,7 +80,7 @@ const LoginPage = () => {
         <X size={20} strokeWidth={3} />
       </button>
 
-      <div className="bg-white p-6 sm:p-10 rounded-2xl shadow-xl w-full max-w-xl border border-gray-100">
+      <div className="bg-white p-6 sm:p-10 rounded-2xl shadow-xl w-full max-w-2xl border border-gray-100">
         <div className="text-center mb-10">
           <div className="flex flex-col items-center gap-3">
             <Image
@@ -96,7 +95,7 @@ const LoginPage = () => {
               Welcome
             </h1>
           </div>
-          <p className="text-gray-500 text-sm mt-3 max-w-70 mx-auto">
+          <p className="text-gray-500 text-sm md:text-base mt-3 mx-auto">
             Manage your orders, track shipments, and configure products easily.
           </p>
         </div>

@@ -20,3 +20,47 @@ api.interceptors.request.use(
   },
   (error) => Promise.reject(error),
 );
+
+// Auth API calls
+export async function forgotPassword(email: string) {
+  try {
+    const response = await api.post("/auth/forgot-password", { email });
+    return response.data;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
+    throw new Error(
+      error.response?.data?.message || "Failed to fetch approved properties",
+    );
+  }
+}
+
+export async function verifyOTP(email: string, otp: string) {
+  try {
+    const response = await api.post("/auth/verify-otp", { email, otp });
+    return response.data;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
+    throw new Error(error.response?.data?.message || "Failed to verify OTP");
+  }
+}
+
+export async function resetPassword(
+  newPassword: string,
+  confirmPassword: string,
+  token: string,
+) {
+  try {
+    const response = await api.post("/auth/reset-password", {
+      newPassword,
+      confirmPassword,
+      accessToken: token,
+    });
+
+    return response.data;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
+    throw new Error(
+      error.response?.data?.message || "Failed to reset password",
+    );
+  }
+}
