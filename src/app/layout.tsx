@@ -1,12 +1,19 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import AppProvider from "@/providers/app-provider";
+import Navbar from "@/components/shared/navbar";
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
   weight: ["400", "700"],
 });
+
+export const metadata = {
+  title: "WITKLIP Farm",
+  description:
+    "Manage your orders, track shipments, and configure products easily",
+};
 
 export default function RootLayout({
   children,
@@ -16,7 +23,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased`}>
-        <AppProvider>{children}</AppProvider>
+        <AppProvider>
+          <Navbar />
+          {children}
+        </AppProvider>
       </body>
     </html>
   );
