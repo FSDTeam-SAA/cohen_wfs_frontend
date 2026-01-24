@@ -19,6 +19,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
+import { toast } from "sonner";
 
 // 1. Define Form Schema with Zod
 const loginSchema = z.object({
@@ -56,9 +57,7 @@ const LoginPage = () => {
       });
 
       if (result?.error) {
-        // Handle specific auth errors (e.g., wrong password)
-        console.error("Auth error:", result.error);
-        form.setError("root", { message: "Invalid email or password" });
+        toast.error("Invalid email or password. Please try again.");
       } else if (result?.ok) {
         // Manual redirect if necessary
         window.location.href = "/dashboard";
