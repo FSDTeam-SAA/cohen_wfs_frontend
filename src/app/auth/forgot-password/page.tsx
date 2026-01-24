@@ -68,7 +68,7 @@ const ForgotPasswordPage = () => {
       >
         <X size={20} strokeWidth={3} />
       </button>
-      <div className="bg-white p-8 sm:p-12 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] w-full max-w-xl border border-gray-50">
+      <div className="bg-white p-8 sm:p-12 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] w-full max-w-2xl border border-gray-50">
         <div className="text-center mb-8">
           <div className="flex flex-col items-center gap-4">
             <Image
@@ -83,7 +83,7 @@ const ForgotPasswordPage = () => {
               Reset Your Password
             </h1>
           </div>
-          <p className="text-gray-500 text-sm mt-4 leading-relaxed max-w-87.5 mx-auto">
+          <p className="text-gray-500 text-sm md:text-base mt-4 leading-relaxed mx-auto">
             Enter your email address and we&apos;ll send you code to reset your
             password.
           </p>

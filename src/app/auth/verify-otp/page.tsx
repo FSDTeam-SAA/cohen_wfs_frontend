@@ -37,10 +37,9 @@ type OtpFormValues = z.infer<typeof otpSchema>;
 const VerifyOtpPage = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const email = searchParams.get("email") || ""; // Get email from params
-
+  const email = searchParams.get("email") || "";
   const [isLoading, setIsLoading] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(30); // 30 second timer based on your image
+  const [timeLeft, setTimeLeft] = useState(60);
 
   // Timer logic
   useEffect(() => {
@@ -84,7 +83,7 @@ const VerifyOtpPage = () => {
       >
         <X size={20} strokeWidth={3} />
       </button>
-      <div className="bg-white p-6 sm:p-12 rounded-2xl shadow-xl w-full max-w-xl border border-gray-50">
+      <div className="bg-white p-6 sm:p-12 rounded-2xl shadow-xl w-full max-w-2xl border border-gray-50">
         {/* Header Section */}
         <div className="text-center mb-10">
           <div className="flex flex-col items-center gap-4">
@@ -100,7 +99,7 @@ const VerifyOtpPage = () => {
               Verify Your Account
             </h1>
           </div>
-          <p className="text-gray-500 text-sm mt-4 leading-relaxed max-w-[320px] mx-auto">
+          <p className="text-gray-500 text-sm md:text-base mt-4 leading-relaxed mx-auto">
             Enter the 6-digit code sent to your email to continue.
           </p>
         </div>
@@ -146,7 +145,7 @@ const VerifyOtpPage = () => {
                 <button
                   type="button"
                   disabled={timeLeft > 0}
-                  className="text-[#5A8D45] font-bold hover:underline disabled:opacity-50 disabled:no-underline"
+                  className="text-[#5A8D45] font-bold hover:underline disabled:opacity-50 disabled:no-underline not-disabled:cursor-pointer"
                 >
                   Resend
                 </button>
