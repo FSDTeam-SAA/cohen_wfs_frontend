@@ -43,3 +43,31 @@ export async function verifyOTP(email: string, otp: string) {
     throw new Error(error.response?.data?.message || "Failed to verify OTP");
   }
 }
+
+export async function resetPassword(
+  newPassword: string,
+  confirmPassword: string,
+  token: string,
+) {
+  try {
+    const response = await api.post(
+      "/auth/reset-password",
+      {
+        newPassword,
+        confirmPassword,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      },
+    );
+
+    return response.data;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
+    throw new Error(
+      error.response?.data?.message || "Failed to reset password",
+    );
+  }
+}

@@ -22,6 +22,7 @@ import { Button } from "@/components/ui/button";
 
 // API Import
 import { forgotPassword } from "@/lib/api"; // Adjust the path as per your project structure
+import { toast } from "sonner";
 
 // 1. Define Form Schema
 const forgotPasswordSchema = z.object({
@@ -46,7 +47,8 @@ const ForgotPasswordPage = () => {
   const onSubmit = async (data: ForgotPasswordValues) => {
     setIsLoading(true);
     try {
-      await forgotPassword(data.email);
+      const res = await forgotPassword(data.email);
+      toast.success(res.message || "Verification code sent to your email");
       router.push(`/auth/verify-otp?email=${encodeURIComponent(data.email)}`);
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
@@ -76,7 +78,7 @@ const ForgotPasswordPage = () => {
               height={60}
               src="/images/logo.png"
               alt="witklip logo"
-              className="h-12 w-auto"
+              className="h-20 w-auto"
               priority
             />
             <h1 className="text-3xl font-bold text-[#5A8D45]">

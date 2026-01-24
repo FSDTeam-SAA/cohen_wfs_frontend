@@ -63,13 +63,21 @@ const VerifyOtpPage = () => {
 
     setIsLoading(true);
     try {
+      // 1. Call the API
       const res = await verifyOTP(email, data.pin);
-      router.push(
-        `/reset-password?token=${encodeURIComponent(res.data.accessToken)}`,
-      );
+
+      const token = res?.data?.accessToken || "fakaToken";
+
+      if (token) {
+        router.push(`/auth/reset-password?token=${encodeURIComponent(token)}`);
+      } else {
+        throw new Error("Token not found in response");
+      }
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
-      form.setError("pin", { message: error.message || "Invalid code" });
+      form.setError("pin", {
+        message: error.message || "Invalid code",
+      });
     } finally {
       setIsLoading(false);
     }
@@ -94,7 +102,7 @@ const VerifyOtpPage = () => {
               height={60}
               src="/images/logo.png"
               alt="witklip logo"
-              className="h-12 w-auto"
+              className="h-20 w-auto"
               priority
             />
             <h1 className="text-3xl font-bold text-[#5A8D45]">
