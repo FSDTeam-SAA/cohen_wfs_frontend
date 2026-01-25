@@ -5,6 +5,7 @@ import HeritageSection from "@/components/home/heritage";
 import HeroHome from "@/components/home/hero";
 import LiveStock from "@/components/home/livestock";
 import PartnershipSection from "@/components/home/partnership";
+import Sustainability from "@/components/home/sustainability";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -22,6 +23,7 @@ export default function Home() {
       <LiveStock />
       <AgroEcologicalPotential />
       <FarmingStandards />
+      <Sustainability />
     </main>
   );
 }
