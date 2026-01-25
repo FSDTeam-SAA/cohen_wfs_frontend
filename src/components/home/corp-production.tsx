@@ -7,7 +7,7 @@ import { ProductionData } from "@/data/corp.data";
 
 export default function CorpProduction() {
   return (
-    <section className="bg-[#F9FBF9] py-16 lg:py-24">
+    <section id="operations" className="bg-[#F9FBF9] py-16 lg:py-24">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-5 lg:mb-12">

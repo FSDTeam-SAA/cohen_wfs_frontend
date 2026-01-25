@@ -3,7 +3,7 @@ import React from "react";
 
 export default function LiveStock() {
   return (
-    <section className="bg-white py-16 lg:py-24">
+    <section className="bg-white py-16 lg:py-24" id="livestock">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center lg:gap-8 gap-4 bg-[#F9FAFB] shadow-xl rounded-md">
           <div className="relative w-full aspect-4/3 overflow-hidden rounded-l-md">

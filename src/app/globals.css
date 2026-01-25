@@ -125,6 +125,10 @@
   .container {
     @apply px-2!;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 @layer components {
