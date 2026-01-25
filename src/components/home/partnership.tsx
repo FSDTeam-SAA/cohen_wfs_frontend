@@ -20,9 +20,9 @@ export default function PartnershipSection() {
           {/* Header */}
           <div className="text-center mb-12">
             <h2 className="headline mb-2">The Modern Partnership</h2>
-            <p className="text-gray-700 text-lg lg:text-xl font-semibold">
+            <h5 className="subheading">
               Driving Transformation and Innovation
-            </p>
+            </h5>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">

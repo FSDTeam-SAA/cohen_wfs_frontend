@@ -1,3 +1,4 @@
+import CorpProduction from "@/components/home/corp-production";
 import HeritageSection from "@/components/home/heritage";
 import HeroHome from "@/components/home/hero";
 import PartnershipSection from "@/components/home/partnership";
@@ -14,6 +15,7 @@ export default function Home() {
       <HeroHome />
       <HeritageSection />
       <PartnershipSection />
+      <CorpProduction />
     </main>
   );
 }

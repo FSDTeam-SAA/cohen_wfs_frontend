@@ -18,12 +18,10 @@ const HeritageSection = () => {
             className="space-y-6 order-2 lg:order-1 lg:pr-20 text-justify"
           >
             <div className="space-y-2">
-              <h3 className="headline">
-                The Heritage
-              </h3>
-              <h2 className="text-[#364153] text-3xl sm:text-4xl font-medium leading-tight text-start">
+              <h3 className="headline">The Heritage</h3>
+              <h5 className="subheading">
                 A Century and a Half of Stewardship
-              </h2>
+              </h5>
             </div>
 
             <div className="space-y-5">
