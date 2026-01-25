@@ -1,4 +1,5 @@
 import CorpProduction from "@/components/home/corp-production";
+import AgroEcologicalPotential from "@/components/home/expansion";
 import HeritageSection from "@/components/home/heritage";
 import HeroHome from "@/components/home/hero";
 import LiveStock from "@/components/home/livestock";
@@ -18,6 +19,7 @@ export default function Home() {
       <PartnershipSection />
       <CorpProduction />
       <LiveStock />
+      <AgroEcologicalPotential />
     </main>
   );
 }
