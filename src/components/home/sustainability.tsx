@@ -7,7 +7,7 @@ import ReusableInfo from "../shared/info-reusable";
 
 export default function Sustainability() {
   return (
-    <section className="bg-[#F8FAF8] py-16 lg:py-24">
+    <section id="sustainability" className="bg-[#F8FAF8] py-16 lg:py-24">
       <div className="flex justify-center lg:mb-12 mb-4">
         <Image
           src={"/images/sustainability.png"}

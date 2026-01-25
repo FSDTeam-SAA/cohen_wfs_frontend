@@ -6,7 +6,10 @@ import { motion } from "framer-motion";
 
 export default function PartnershipSection() {
   return (
-    <section className="relative py-16 lg:py-24 overflow-hidden bg-[url('/images/partnership-bg.jpg')] bg-cover bg-center z-20">
+    <section
+      id="partnership"
+      className="relative py-16 lg:py-24 overflow-hidden bg-[url('/images/partnership-bg.jpg')] bg-cover bg-center z-20"
+    >
       <div className="absolute inset-0 bg-primary opacity-60 -z-10" />
 
       <div className="container mx-auto relative z-10">

@@ -7,7 +7,7 @@ import { TeamData } from "@/data/team.data";
 
 export default function MeetTheTeam() {
   return (
-    <section className="bg-[#F9FAFB] py-16 lg:py-24">
+    <section id="team" className="bg-[#F9FAFB] py-16 lg:py-24">
       <div className="container mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16 space-y-4">
