@@ -1,3 +1,4 @@
+import HeroHome from "@/components/home/hero";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -6,5 +7,9 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  return <main></main>;
+  return (
+    <main>
+      <HeroHome />
+    </main>
+  );
 }
