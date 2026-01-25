@@ -1,3 +1,4 @@
+import CommunityDevelopment from "@/components/home/community-development";
 import CorpProduction from "@/components/home/corp-production";
 import AgroEcologicalPotential from "@/components/home/expansion";
 import FarmingStandards from "@/components/home/farming-standards";
@@ -24,6 +25,7 @@ export default function Home() {
       <AgroEcologicalPotential />
       <FarmingStandards />
       <Sustainability />
+      <CommunityDevelopment />
     </main>
   );
 }
