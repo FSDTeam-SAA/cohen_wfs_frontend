@@ -24,24 +24,24 @@ export const ExpansionOverview = [
     product: "Rooibos",
     suitability: "Optimal",
     focus: "Global Export",
-    color: "text-green-600 bg-green-50",
+    color: "text-[#4AA251] bg-[#DCFCE7]",
   },
   {
     product: "Hemp/Cannabis",
     suitability: "High Potential",
     focus: "Industrial/Medical",
-    color: "text-blue-600 bg-blue-50",
+    color: "text-[#193CB8] bg-[#DBEAFE]",
   },
   {
     product: "Onions & Beetroot",
     suitability: "Optimal",
     focus: "Fresh Produce Market",
-    color: "text-green-600 bg-green-50",
+    color: "text-[#4AA251] bg-[#DCFCE7]",
   },
   {
     product: "Nuts & Wheat",
     suitability: "High Potential",
     focus: "Bulk Processing",
-    color: "text-blue-600 bg-blue-50",
+    color: "text-[#193CB8] bg-[#DBEAFE]",
   },
 ];
