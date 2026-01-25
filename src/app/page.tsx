@@ -1,5 +1,6 @@
 import HeritageSection from "@/components/home/heritage";
 import HeroHome from "@/components/home/hero";
+import PartnershipSection from "@/components/home/partnership";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -12,6 +13,7 @@ export default function Home() {
     <main>
       <HeroHome />
       <HeritageSection />
+      <PartnershipSection />
     </main>
   );
 }
