@@ -1,3 +1,4 @@
+import HeritageSection from "@/components/home/heritage";
 import HeroHome from "@/components/home/hero";
 import { Metadata } from "next";
 
@@ -10,6 +11,7 @@ export default function Home() {
   return (
     <main>
       <HeroHome />
+      <HeritageSection />
     </main>
   );
 }
