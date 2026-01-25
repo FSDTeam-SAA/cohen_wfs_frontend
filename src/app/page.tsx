@@ -1,5 +1,6 @@
 import CommunityDevelopment from "@/components/home/community-development";
 import CorpProduction from "@/components/home/corp-production";
+import CTASection from "@/components/home/cta";
 import AgroEcologicalPotential from "@/components/home/expansion";
 import HeritageSection from "@/components/home/heritage";
 import HeroHome from "@/components/home/hero";
@@ -49,6 +50,7 @@ export default function Home() {
         />
       </section>
       <MeetTheTeam />
+      <CTASection />
     </main>
   );
 }
