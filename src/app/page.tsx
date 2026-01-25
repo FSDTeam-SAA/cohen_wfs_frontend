@@ -1,6 +1,7 @@
 import CorpProduction from "@/components/home/corp-production";
 import HeritageSection from "@/components/home/heritage";
 import HeroHome from "@/components/home/hero";
+import LiveStock from "@/components/home/livestock";
 import PartnershipSection from "@/components/home/partnership";
 import { Metadata } from "next";
 
@@ -16,6 +17,7 @@ export default function Home() {
       <HeritageSection />
       <PartnershipSection />
       <CorpProduction />
+      <LiveStock />
     </main>
   );
 }
