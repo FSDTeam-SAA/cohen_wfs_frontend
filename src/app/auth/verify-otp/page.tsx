@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
@@ -34,7 +34,7 @@ const otpSchema = z.object({
 
 type OtpFormValues = z.infer<typeof otpSchema>;
 
-const VerifyOtpPage = () => {
+const VerifyOtp = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const email = searchParams.get("email") || "";
@@ -184,4 +184,10 @@ const VerifyOtpPage = () => {
   );
 };
 
-export default VerifyOtpPage;
+const verifyOTPPage = () => {
+  <Suspense>
+    <VerifyOtp />
+  </Suspense>;
+};
+
+export default verifyOTPPage;

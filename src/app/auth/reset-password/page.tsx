@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
@@ -34,7 +34,7 @@ const resetSchema = z
 
 type ResetValues = z.infer<typeof resetSchema>;
 
-const ResetPasswordPage = () => {
+const ResetPassword = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -192,6 +192,12 @@ const ResetPasswordPage = () => {
       </div>
     </div>
   );
+};
+
+const ResetPasswordPage = () => {
+  <Suspense>
+    <ResetPassword />
+  </Suspense>;
 };
 
 export default ResetPasswordPage;
