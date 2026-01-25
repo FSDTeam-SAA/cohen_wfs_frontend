@@ -1,5 +1,10 @@
+import CorpProduction from "@/components/home/corp-production";
+import AgroEcologicalPotential from "@/components/home/expansion";
+import FarmingStandards from "@/components/home/farming-standards";
 import HeritageSection from "@/components/home/heritage";
 import HeroHome from "@/components/home/hero";
+import LiveStock from "@/components/home/livestock";
+import PartnershipSection from "@/components/home/partnership";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -12,6 +17,11 @@ export default function Home() {
     <main>
       <HeroHome />
       <HeritageSection />
+      <PartnershipSection />
+      <CorpProduction />
+      <LiveStock />
+      <AgroEcologicalPotential />
+      <FarmingStandards />
     </main>
   );
 }

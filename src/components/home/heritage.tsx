@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const HeritageSection = () => {
   return (
-    <section className="bg-white py-16 px-4 sm:py-24 overflow-hidden">
+    <section className="bg-white py-16 sm:py-24 overflow-hidden">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left Content Column */}
@@ -18,15 +18,13 @@ const HeritageSection = () => {
             className="space-y-6 order-2 lg:order-1 lg:pr-20 text-justify"
           >
             <div className="space-y-2">
-              <h3 className="headline">
-                The Heritage
-              </h3>
-              <h2 className="text-[#364153] text-3xl sm:text-4xl font-medium leading-tight">
+              <h3 className="headline">The Heritage</h3>
+              <h5 className="subheading">
                 A Century and a Half of Stewardship
-              </h2>
+              </h5>
             </div>
 
-            <div className="space-y-5 text-gray-600 leading-relaxed text-sm sm:text-base">
+            <div className="space-y-5">
               <p>
                 The story of Witklip Farm began over 160 years ago. Since the
                 mid-19th century, the Burger family has served as the dedicated

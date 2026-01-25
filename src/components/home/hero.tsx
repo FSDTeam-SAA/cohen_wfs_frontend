@@ -47,12 +47,12 @@ export default function HeroHome() {
           >
             A Century and a Half of Stewardship
           </motion.h2>
-          <motion.p
+          <motion.h2
             variants={itemVariants}
             className="text-lg sm:text-xl lg:text-2xl"
           >
             160 Years of Agricultural Excellence in Graafwater
-          </motion.p>
+          </motion.h2>
         </div>
 
         <motion.div
