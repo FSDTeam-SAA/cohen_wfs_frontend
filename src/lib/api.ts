@@ -64,3 +64,80 @@ export async function resetPassword(
     );
   }
 }
+
+export async function resendOTP(email: string) {
+  try {
+    const response = await api.post("/auth/resend-otp", { email });
+    return response.data;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
+    throw new Error(error.response?.data?.message || "Failed to resend OTP");
+  }
+}
+
+// Admin API calls
+export async function getAdminStats() {
+  try {
+    const response = await api.get("/enquiry/stats");
+    return response.data;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
+    throw new Error(
+      error.response?.data?.message || "Failed to fetch admin stats",
+    );
+  }
+}
+
+export async function getAllEnquiries(
+  page: number,
+  limit: number,
+  query: {
+    searchTerm?: string;
+    status?: string;
+    productInterest?: string;
+    priority?: string;
+  },
+) {
+  try {
+    const response = await api.get(
+      `/enquiry/get-all-enquiries?page=${page}&limit=${limit}&searchTerm=${query.searchTerm}&status=${query.status}&productInterest=${query.productInterest}&priority=${query.priority}`,
+    );
+    return response.data;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
+    throw new Error(
+      error.response?.data?.message || "Failed to fetch enquiries",
+    );
+  }
+}
+
+export async function getSingleEnquiry(enquiryId: string) {
+  try {
+    const response = await api.get(`/enquiry/${enquiryId}`);
+    return response.data;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
+    throw new Error(
+      error.response?.data?.message || "Failed to fetch enquiry details",
+    );
+  }
+}
+
+export async function updateEnquiry(
+  enquiryId: string,
+  status?: string,
+  priority?: string,
+) {
+  try {
+    const response = await api.patch(`/enquiry/update-status/${enquiryId}`, {
+      status,
+      priority,
+    });
+    return response.data;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
+    throw new Error(
+      error.response?.data?.message || "Failed to update enquiry status",
+    );
+  }
+}
