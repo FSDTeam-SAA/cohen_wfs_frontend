@@ -185,9 +185,11 @@ const VerifyOtp = () => {
 };
 
 const verifyOTPPage = () => {
-  <Suspense>
-    <VerifyOtp />
-  </Suspense>;
+  return (
+    <Suspense>
+      <VerifyOtp />
+    </Suspense>
+  );
 };
 
 export default verifyOTPPage;
