@@ -54,3 +54,41 @@ export const priorityBgColorMap: Record<Priority, string> = {
   [Priority.MEDIUM]: "bg-yellow-50",
   [Priority.LOW]: "bg-green-50",
 };
+
+// Enquiry interface
+export interface Enquiry {
+  _id: string;
+  enquiryId: string;
+  fullName: string;
+  email: string;
+  phoneNumber: string;
+  companyName: string;
+  enquiryType: string;
+  productInterest: string;
+  location: string;
+  volumeRequired: string;
+  message: string;
+  status: string;
+  priority: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+// API Response types
+export interface PaginationMeta {
+  page: number;
+  limit: number;
+  total: number;
+  totalPage: number;
+}
+
+export interface EnquiriesResponse {
+  success: boolean;
+  message: string;
+  statusCode: number;
+  data: {
+    meta: PaginationMeta;
+    data: Enquiry[];
+  };
+  meta: PaginationMeta;
+}

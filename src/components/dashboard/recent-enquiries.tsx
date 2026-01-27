@@ -8,7 +8,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Search, Download, MoreVertical } from "lucide-react";
-import { getAllEnquiries } from "@/lib/api";
+import { getAllEnquiries, exportEnquiries } from "@/lib/api";
+import { Enquiry } from "@/lib/types";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -37,20 +38,6 @@ const priorityColors: Record<string, { bg: string; text: string }> = {
   Medium: { bg: "bg-yellow-100", text: "text-yellow-700" },
   Low: { bg: "bg-green-100", text: "text-green-700" },
 };
-
-interface Enquiry {
-  _id: string;
-  enquiryId: string;
-  companyName: string;
-  fullName: string;
-  email: string;
-  phoneNumber: string;
-  productInterest: string;
-  enquiryType: string;
-  status: string;
-  priority: string;
-  createdAt: string;
-}
 
 export function RecentEnquiries() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -86,47 +73,21 @@ export function RecentEnquiries() {
     setModalOpen(true);
   };
 
-  const exportToCSV = () => {
-    const enquiries = data?.data?.data || [];
-    if (enquiries.length === 0) return;
-
-    const headers = [
-      "ID",
-      "Date",
-      "Company",
-      "Contact",
-      "Email",
-      "Phone",
-      "Product",
-      "Type",
-      "Status",
-      "Priority",
-    ];
-    const rows = enquiries.map((e: Enquiry) => [
-      e.enquiryId,
-      new Date(e.createdAt).toLocaleDateString("en-ZA"),
-      e.companyName,
-      e.fullName,
-      e.email,
-      e.phoneNumber,
-      e.productInterest,
-      e.enquiryType,
-      e.status,
-      e.priority,
-    ]);
-
-    const csvContent = [
-      headers.join(","),
-      ...rows.map((r: string[]) => r.map((cell) => `"${cell}"`).join(",")),
-    ].join("\n");
-
-    const blob = new Blob([csvContent], { type: "text/csv" });
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "enquiries.csv";
-    a.click();
-    window.URL.revokeObjectURL(url);
+  const exportToCSV = async () => {
+    try {
+      const blob = await exportEnquiries();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `recent-enquiries-${new Date().toISOString().split("T")[0]}.csv`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error("Export failed:", error);
+      // You might want to add a toast notification here
+    }
   };
 
   if (isLoading) {

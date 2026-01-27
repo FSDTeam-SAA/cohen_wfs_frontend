@@ -100,7 +100,8 @@ export async function getAllEnquiries(
 ) {
   try {
     const response = await api.get(
-      `/enquiry/get-all-enquiries?page=${page}&limit=${limit}&searchTerm=${query.searchTerm}&status=${query.status}&productInterest=${query.productInterest}&priority=${query.priority}`,
+      // ?page=${page}&limit=${limit}&searchTerm=${query.searchTerm}&status=${query.status}&productInterest=${query.productInterest}&priority=${query.priority}
+      `/enquiry/get-all-enquiries`,
     );
     return response.data;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -138,6 +139,20 @@ export async function updateEnquiry(
   } catch (error: any) {
     throw new Error(
       error.response?.data?.message || "Failed to update enquiry status",
+    );
+  }
+}
+
+export async function exportEnquiries() {
+  try {
+    const response = await api.get("/enquiry/export", {
+      responseType: "blob",
+    });
+    return response.data;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
+    throw new Error(
+      error.response?.data?.message || "Failed to export enquiries",
     );
   }
 }
