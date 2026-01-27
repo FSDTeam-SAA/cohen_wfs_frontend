@@ -19,7 +19,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Mail, Phone, MapPin, Building2, Calendar } from "lucide-react";
+import { Mail, Phone, MapPin, Calendar } from "lucide-react";
 import { toast } from "sonner";
 
 interface EnquiryDetailsModalProps {
