@@ -195,9 +195,11 @@ const ResetPassword = () => {
 };
 
 const ResetPasswordPage = () => {
-  <Suspense>
-    <ResetPassword />
-  </Suspense>;
+  return (
+    <Suspense>
+      <ResetPassword />
+    </Suspense>
+  );
 };
 
 export default ResetPasswordPage;

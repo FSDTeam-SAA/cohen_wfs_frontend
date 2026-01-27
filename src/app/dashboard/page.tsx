@@ -1,5 +1,11 @@
+import Statictics from "@/components/dashboard/statictics";
 import React from "react";
 
 export default function DashboardPage() {
-  return <div>Dashboard Page</div>;
+  return (
+    <div>
+      <h2>Dashboard Page</h2>
+      <Statictics />
+    </div>
+  );
 }

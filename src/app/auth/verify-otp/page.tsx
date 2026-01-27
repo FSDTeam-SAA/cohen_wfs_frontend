@@ -24,7 +24,9 @@ import {
 import { Button } from "@/components/ui/button";
 
 // API Import
-import { verifyOTP } from "@/lib/api";
+import { resendOTP, verifyOTP } from "@/lib/api";
+import { useMutation } from "@tanstack/react-query";
+import { toast } from "sonner";
 
 const otpSchema = z.object({
   pin: z.string().min(6, {
@@ -82,6 +84,17 @@ const VerifyOtp = () => {
       setIsLoading(false);
     }
   };
+
+  const resenMutation = useMutation({
+    mutationFn: async () => resendOTP(email),
+    onSuccess: (res) => {
+      toast.success(res.message || "OTP resent successfully");
+      setTimeLeft(60); // Reset timer on successful resend
+    },
+    onError: (error) => {
+      console.error("Failed to resend OTP:", error.message);
+    },
+  });
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#FBF4EA] p-4 sm:p-6 lg:p-8">
@@ -156,6 +169,7 @@ const VerifyOtp = () => {
                   type="button"
                   disabled={timeLeft > 0}
                   className="text-[#5A8D45] font-bold hover:underline disabled:opacity-50 disabled:no-underline not-disabled:cursor-pointer"
+                  onClick={() => resenMutation.mutate()}
                 >
                   Resend
                 </button>
@@ -185,9 +199,11 @@ const VerifyOtp = () => {
 };
 
 const verifyOTPPage = () => {
-  <Suspense>
-    <VerifyOtp />
-  </Suspense>;
+  return (
+    <Suspense>
+      <VerifyOtp />
+    </Suspense>
+  );
 };
 
 export default verifyOTPPage;

@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
-import "./globals.css";
-import AppProvider from "@/providers/app-provider";
+import "../globals.css";
+import { Sidebar } from "@/components/dashboard/sidebar";
+import Topbar from "@/components/dashboard/topbar";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -22,7 +23,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased`}>
-        <AppProvider>{children}</AppProvider>
+        <Topbar />
+        <div className="flex min-h-screen">
+          <Sidebar />
+          <div className="flex-1 md:w-[calc(100vw-108px)] pl-60 pr-5 py-5">
+            {children}
+          </div>
+        </div>
       </body>
     </html>
   );
