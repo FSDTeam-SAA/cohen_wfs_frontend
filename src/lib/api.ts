@@ -88,34 +88,6 @@ export async function getAdminStats() {
   }
 }
 
-export interface Enquiry {
-  _id: string;
-  fullName: string;
-  email: string;
-  phoneNumber: string;
-  companyName: string;
-  enquiryType: string;
-  productInterest: string;
-  location: string;
-  volumeRequired: string;
-  message: string;
-  status: "New" | "In Progress" | "Follow-up Required" | "Completed";
-  priority: "High" | "Medium" | "Low";
-  createdAt: string;
-  updatedAt: string;
-  enquiryId: string;
-}
-
-export interface EnquiriesResponse {
-  meta: {
-    page: number;
-    limit: number;
-    total: number;
-    totalPage: number;
-  };
-  data: Enquiry[];
-}
-
 export async function getAllEnquiries(
   page: number,
   limit: number,
@@ -125,24 +97,17 @@ export async function getAllEnquiries(
     productInterest?: string;
     priority?: string;
   },
-): Promise<EnquiriesResponse> {
+) {
   try {
-    const params = new URLSearchParams();
-    params.append("page", page.toString());
-    params.append("limit", limit.toString());
-    if (query.searchTerm) params.append("searchTerm", query.searchTerm);
-    if (query.status) params.append("status", query.status);
-    if (query.productInterest)
-      params.append("productInterest", query.productInterest);
-    if (query.priority) params.append("priority", query.priority);
-
-    const response = await api.get<EnquiriesResponse>(
-      `/enquiry/get-all-enquiries?${params.toString()}`,
+    const response = await api.get(
+      `/enquiry/get-all-enquiries?page=${page}&limit=${limit}&searchTerm=${query.searchTerm}&status=${query.status}&productInterest=${query.productInterest}&priority=${query.priority}`,
     );
     return response.data;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
-    throw new Error(error.message || "Failed to fetch enquiries");
+    throw new Error(
+      error.response?.data?.message || "Failed to fetch enquiries",
+    );
   }
 }
 

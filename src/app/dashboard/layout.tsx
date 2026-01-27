@@ -24,9 +24,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} antialiased`}>
         <Topbar />
-        <div className="flex h-screen bg-background">
+        <div className="flex min-h-screen">
           <Sidebar />
-          {children}
+          <div className="flex-1 md:w-[calc(100vw-108px)] pl-60 pr-5 py-5">
+            {children}
+          </div>
         </div>
       </body>
     </html>

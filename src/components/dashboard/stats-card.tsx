@@ -15,8 +15,6 @@ export function StatsCard({
   icon: Icon,
   label,
   value,
-  trend,
-  trendColor = "green",
   bgColor = "bg-blue-50",
   iconColor = "text-blue-600",
 }: StatsCardProps) {
@@ -27,15 +25,6 @@ export function StatsCard({
           <div>
             <p className="text-sm text-muted-foreground mb-2">{label}</p>
             <p className="text-3xl font-bold">{value}</p>
-            {trend && (
-              <p
-                className={`text-xs mt-2 ${
-                  trendColor === "green" ? "text-green-600" : "text-red-600"
-                }`}
-              >
-                {trend}
-              </p>
-            )}
           </div>
           <div className={`p-3 rounded-lg ${bgColor}`}>
             <Icon className={`w-6 h-6 ${iconColor}`} />

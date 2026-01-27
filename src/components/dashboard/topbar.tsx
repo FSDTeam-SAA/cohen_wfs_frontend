@@ -11,7 +11,7 @@ export default function Topbar() {
   console.log("Session: ", sessionData);
 
   return (
-    <div className="border-b border-border py-2 px-12 flex justify-between items-center">
+    <div className="sticky top-0 border-b border-border h-24 px-12 flex justify-between items-center bg-white">
       {/* Logo Section */}
       <div className="flex items-center space-x-5">
         <Image

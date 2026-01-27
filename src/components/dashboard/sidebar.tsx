@@ -22,7 +22,7 @@ export function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="flex flex-col w-56 border-r border-border bg-background">
+    <aside className="fixed left-0 h-[calc(100vh-96px)] flex flex-col w-56 border-r border-border bg-background">
       {/* Menu Items */}
       <nav className="flex-1 p-4 space-y-2">
         {menuItems.map((item) => {
