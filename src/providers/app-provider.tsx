@@ -17,7 +17,8 @@ export default function AppProvider({
 
   const pathname = usePathname();
 
-  const isHidNavFooter = pathname.startsWith("/auth/");
+  const isHidNavFooter =
+    pathname.startsWith("/auth/") || pathname.startsWith("/dashboard");
 
   return (
     <SessionProvider>

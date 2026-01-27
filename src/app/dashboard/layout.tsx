@@ -1,18 +1,32 @@
-import { Sidebar } from "@/components/dashboard/sidebar";
-import React from "react";
+import { Inter } from "next/font/google";
 import "../globals.css";
+import { Sidebar } from "@/components/dashboard/sidebar";
+import Topbar from "@/components/dashboard/topbar";
 
-export default function DashboardLayout({
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["400", "700", "900"],
+});
+
+export const metadata = {
+  title: "WITKLIP Farm",
+  description:
+    "Manage your orders, track shipments, and configure products easily",
+};
+
+export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="en">
-      <body>
+      <body className={`${inter.className} antialiased`}>
+        <Topbar />
         <div className="flex h-screen bg-background">
           <Sidebar />
-          <main className="flex-1 overflow-auto">{children}</main>
+          {children}
         </div>
       </body>
     </html>

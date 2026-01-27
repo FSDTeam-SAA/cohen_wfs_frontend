@@ -2,9 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, FileText, LogOut } from "lucide-react";
+import { LayoutDashboard, FileText } from "lucide-react";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
 
 const menuItems = [
   {
@@ -24,17 +23,6 @@ export function Sidebar() {
 
   return (
     <aside className="flex flex-col w-56 border-r border-border bg-background">
-      {/* Logo Section */}
-      <div className="flex items-center gap-2 border-b border-border justify-center">
-        <Image
-          src={"/images/logo.png"}
-          alt="Witklip Farm Logo"
-          width={1000}
-          height={900}
-          className="object-contain w-20 aspect-4/3"
-        />
-      </div>
-
       {/* Menu Items */}
       <nav className="flex-1 p-4 space-y-2">
         {menuItems.map((item) => {
