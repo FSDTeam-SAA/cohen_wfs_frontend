@@ -99,16 +99,24 @@ export async function getAllEnquiries(
   },
 ) {
   try {
-    const response = await api.get(
-      // ?page=${page}&limit=${limit}&searchTerm=${query.searchTerm}&status=${query.status}&productInterest=${query.productInterest}&priority=${query.priority}
-      `/enquiry/get-all-enquiries`,
-    );
+    const response = await api.get("/enquiry/get-all-enquiries", {
+      params: {
+        page,
+        limit,
+        searchTerm: query.searchTerm || undefined,
+        status: query.status || undefined,
+        product: query.productInterest || undefined,
+        priority: query.priority || undefined,
+      },
+    });
     return response.data;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  } catch (error: any) {
-    throw new Error(
-      error.response?.data?.message || "Failed to fetch enquiries",
-    );
+  } catch (error: unknown) {
+    if (axios.isAxiosError(error)) {
+      throw new Error(
+        error.response?.data?.message || "Failed to fetch enquiries",
+      );
+    }
+    throw new Error("An unexpected error occurred while fetching enquiries");
   }
 }
 

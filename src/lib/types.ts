@@ -86,9 +86,6 @@ export interface EnquiriesResponse {
   success: boolean;
   message: string;
   statusCode: number;
-  data: {
-    meta: PaginationMeta;
-    data: Enquiry[];
-  };
+  data: Enquiry[];
   meta: PaginationMeta;
 }

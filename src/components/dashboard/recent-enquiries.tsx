@@ -105,8 +105,8 @@ export function RecentEnquiries() {
     );
   }
 
-  const enquiries: Enquiry[] = data?.data?.data || [];
-  const totalCount = data?.data?.meta?.total || enquiries.length;
+  const enquiries: Enquiry[] = data?.data || [];
+  const totalCount = data?.meta?.total || enquiries.length;
 
   return (
     <>

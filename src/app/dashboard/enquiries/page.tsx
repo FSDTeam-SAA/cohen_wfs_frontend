@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Search, Download, MoreVertical, ChevronLeft, ChevronRight } from "lucide-react";
 import { getAllEnquiries, exportEnquiries } from "@/lib/api";
+import { Enquiry, EnquiriesResponse } from "@/lib/types";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -36,19 +37,7 @@ const priorityColors: Record<string, { bg: string; text: string }> = {
   Low: { bg: "bg-green-100", text: "text-green-700" },
 };
 
-interface Enquiry {
-  _id: string;
-  enquiryId: string;
-  companyName: string;
-  fullName: string;
-  email: string;
-  phoneNumber: string;
-  productInterest: string;
-  enquiryType: string;
-  status: string;
-  priority: string;
-  createdAt: string;
-}
+// Local types removed, using @/lib/types
 
 export default function AllEnquiriesPage() {
   const [page, setPage] = useState(1);
@@ -61,7 +50,7 @@ export default function AllEnquiriesPage() {
 
   const limit = 10;
 
-  const { data, isLoading } = useQuery({
+  const { data, isLoading } = useQuery<EnquiriesResponse>({
     queryKey: [
       "all-enquiries",
       page,
@@ -77,6 +66,8 @@ export default function AllEnquiriesPage() {
         status: statusFilter === "all" ? "" : statusFilter,
         productInterest: productFilter === "all" ? "" : productFilter,
         priority: priorityFilter === "all" ? "" : priorityFilter,
+        // sortBy,
+        // sortOrder,
       }),
   });
 
@@ -102,8 +93,8 @@ export default function AllEnquiriesPage() {
     }
   };
 
-  const enquiries: Enquiry[] = data?.data?.data || [];
-  const totalCount = data?.data?.meta?.total || 0;
+  const enquiries: Enquiry[] = data?.data || [];
+  const totalCount = data?.meta?.total || 0;
   const totalPages = Math.ceil(totalCount / limit);
 
   return (
