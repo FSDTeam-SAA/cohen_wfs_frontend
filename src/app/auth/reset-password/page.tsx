@@ -6,7 +6,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Eye, EyeOff, Loader2 } from "lucide-react";
+import { Eye, EyeOff, Loader2, X } from "lucide-react";
 
 import {
   Form,
@@ -20,6 +20,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { resetPassword } from "@/lib/api";
 import { toast } from "sonner";
+import Link from "next/link";
 
 // 1. Define Form Schema with Validation
 const resetSchema = z
@@ -81,6 +82,15 @@ const ResetPassword = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#FBF4EA] p-4 sm:p-6 lg:p-8">
       <div className="bg-white p-8 sm:p-12 rounded-2xl shadow-xl w-full max-w-2xl border border-gray-50">
+        {/* Exit Button */}
+        <Link href="/">
+          <button
+            type="button"
+            className="absolute top-6 right-6 sm:top-10 sm:right-10 w-10 h-10 rounded-full flex items-center justify-center bg-white text-red-500 shadow-md hover:bg-gray-50 transition-colors cursor-pointer"
+          >
+            <X size={20} strokeWidth={3} />
+          </button>
+        </Link>
         {/* Header Section */}
         <div className="text-center mb-10">
           <div className="flex flex-col items-center gap-4">
