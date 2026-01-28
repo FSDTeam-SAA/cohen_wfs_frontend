@@ -5,6 +5,7 @@ import AgroEcologicalPotential from "@/components/home/expansion";
 import HeritageSection from "@/components/home/heritage";
 import HeroHome from "@/components/home/hero";
 import LiveStock from "@/components/home/livestock";
+import LucerneProduction from "@/components/home/lucerne";
 import MeetTheTeam from "@/components/home/meet-the-team";
 import PartnershipSection from "@/components/home/partnership";
 import Sustainability from "@/components/home/sustainability";
@@ -26,6 +27,7 @@ export default function Home() {
       <PartnershipSection />
       <CorpProduction />
       <LiveStock />
+      <LucerneProduction />
       <AgroEcologicalPotential />
       <section className="bg-[#F8FAF8] py-16 lg:py-24">
         <ReusableInfo

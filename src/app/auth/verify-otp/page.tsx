@@ -27,6 +27,7 @@ import { Button } from "@/components/ui/button";
 import { resendOTP, verifyOTP } from "@/lib/api";
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "sonner";
+import Link from "next/link";
 
 const otpSchema = z.object({
   pin: z.string().min(6, {
@@ -99,13 +100,14 @@ const VerifyOtp = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#FBF4EA] p-4 sm:p-6 lg:p-8">
       {/* Exit Button */}
-      <button
-        type="button"
-        className="absolute top-6 right-6 sm:top-10 sm:right-10 w-10 h-10 rounded-full flex items-center justify-center bg-white text-red-500 shadow-md hover:bg-gray-50 transition-colors cursor-pointer"
-        onClick={() => window.history.back()}
-      >
-        <X size={20} strokeWidth={3} />
-      </button>
+      <Link href="/">
+        <button
+          type="button"
+          className="absolute top-6 right-6 sm:top-10 sm:right-10 w-10 h-10 rounded-full flex items-center justify-center bg-white text-red-500 shadow-md hover:bg-gray-50 transition-colors cursor-pointer"
+        >
+          <X size={20} strokeWidth={3} />
+        </button>
+      </Link>
       <div className="bg-white p-6 sm:p-12 rounded-2xl shadow-xl w-full max-w-2xl border border-gray-50">
         {/* Header Section */}
         <div className="text-center mb-10">

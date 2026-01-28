@@ -17,7 +17,7 @@ export default function CorpProduction() {
             viewport={{ once: true }}
             className="headline mb-2"
           >
-            Corp Production
+            Crops Production
           </motion.h2>
           <h5 className="subheading">Excellence in Every Harvest</h5>
         </div>

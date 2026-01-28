@@ -53,7 +53,7 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
-            <Link href="/contact">
+            <Link href="/enquiry">
               <Button className="bg-[#52A454] hover:bg-[#458e47] text-white px-10 rounded-md font-semibold py-6">
                 Enquiry
               </Button>

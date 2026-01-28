@@ -23,6 +23,7 @@ import { Button } from "@/components/ui/button";
 // API Import
 import { forgotPassword } from "@/lib/api"; // Adjust the path as per your project structure
 import { toast } from "sonner";
+import Link from "next/link";
 
 // 1. Define Form Schema
 const forgotPasswordSchema = z.object({
@@ -63,13 +64,14 @@ const ForgotPasswordPage = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#FBF4EA] p-4 sm:p-6 lg:p-8 relative">
       {/* Exit Button */}
-      <button
-        type="button"
-        className="absolute top-6 right-6 sm:top-10 sm:right-10 w-10 h-10 rounded-full flex items-center justify-center bg-white text-red-500 shadow-md hover:bg-gray-50 transition-colors cursor-pointer"
-        onClick={() => window.history.back()}
-      >
-        <X size={20} strokeWidth={3} />
-      </button>
+      <Link href="/">
+        <button
+          type="button"
+          className="absolute top-6 right-6 sm:top-10 sm:right-10 w-10 h-10 rounded-full flex items-center justify-center bg-white text-red-500 shadow-md hover:bg-gray-50 transition-colors cursor-pointer"
+        >
+          <X size={20} strokeWidth={3} />
+        </button>
+      </Link>
       <div className="bg-white p-8 sm:p-12 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] w-full max-w-2xl border border-gray-50">
         <div className="text-center mb-8">
           <div className="flex flex-col items-center gap-4">
