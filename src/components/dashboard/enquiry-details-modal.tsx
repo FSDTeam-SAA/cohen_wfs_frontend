@@ -2,7 +2,7 @@
 
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { getSingleEnquiry, updateEnquiry } from "@/lib/api";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -25,7 +25,6 @@ import {
   MapPin,
   Calendar,
   Building2,
-  MessageSquare,
   Package,
 } from "lucide-react";
 import { toast } from "sonner";
@@ -96,13 +95,11 @@ export function EnquiryDetailsModal({
 
   const enquiry: EnquiryData | undefined = data?.data || data;
 
-  // Reset local state when enquiry data changes
-  useEffect(() => {
-    if (enquiry) {
-      setLocalStatus(enquiry.status);
-      setLocalPriority(enquiry.priority);
-    }
-  }, [enquiry]);
+  // Reset local state when modal opens with new enquiry data
+  if (enquiry && !localStatus) {
+    setLocalStatus(enquiry.status);
+    setLocalPriority(enquiry.priority);
+  }
 
   const mutation = useMutation({
     mutationFn: () => updateEnquiry(enquiryId, localStatus, localPriority),
@@ -238,10 +235,7 @@ export function EnquiryDetailsModal({
                   </div>
                   <div className="flex items-center gap-2">
                     <Phone className="w-4 h-4 text-muted-foreground" />
-                    <a
-                      href={`tel:${enquiry.phoneNumber}`}
-                      className="text-sm"
-                    >
+                    <a href={`tel:${enquiry.phoneNumber}`} className="text-sm">
                       {enquiry.phoneNumber}
                     </a>
                   </div>
