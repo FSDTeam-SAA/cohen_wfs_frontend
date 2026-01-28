@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { MapPin, Phone, Mail } from "lucide-react";
+import { MapPin, Mail } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -68,15 +68,11 @@ export default function Footer() {
             <ul className="space-y-4 text-base text-white/80">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 mt-0.5 shrink-0" />
-                <span>123 Farm Road, Agricultural District, South Africa</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 shrink-0" />
-                <span>+27 (0) 123 456 789</span>
+                <span>Witklip Farm, Graafwater, 8120</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 shrink-0" />
-                <span>admin@witklipfarms.com</span>
+                <span>admin@witklipfarm.com</span>
               </li>
             </ul>
           </div>
@@ -86,7 +82,7 @@ export default function Footer() {
             <h4 className="text-lg font-bold border-b border-white/20 pb-2 inline-block">
               Partners
             </h4>
-            <div className="flex flex-wrap items-center gap-6">
+            <div className="flex flex-wrap items-center gap-4">
               <Image
                 src="/images/partner1.png"
                 alt="Potatoes SA"
@@ -95,9 +91,16 @@ export default function Footer() {
                 className="object-contain"
               />
               <Image
+                src="/images/sustainability.png"
+                alt="Land Bank"
+                width={1000}
+                height={1000}
+                className="object-contain w-32 aspect-4/3"
+              />
+              <Image
                 src="/images/partner2.png"
                 alt="Land Bank"
-                width={100}
+                width={80}
                 height={50}
                 className="object-contain"
               />
