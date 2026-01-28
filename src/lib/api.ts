@@ -187,3 +187,23 @@ export async function submitEnquiry(data: {
     );
   }
 }
+
+export async function submitContactForm(data: {
+  fullName: string;
+  email: string;
+  phoneNumber: string;
+  companyName: string;
+  location: string;
+  message: string;
+  category: string;
+}) {
+  try {
+    const response = await api.post("/contact/us", data);
+    return response.data;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
+    throw new Error(
+      error.response?.data?.message || "Failed to submit contact form",
+    );
+  }
+}

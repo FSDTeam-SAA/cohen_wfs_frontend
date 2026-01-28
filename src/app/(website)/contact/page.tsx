@@ -1,13 +1,13 @@
-import EnquiryForm from "@/components/contact/enquiry-form";
+import ContactForm from "@/components/contact/contact-form";
 import CommonHero from "@/components/shared/common-hero";
 import ContactSidebar from "@/components/shared/contact-sidebar";
 import React from "react";
 
-export default function Enquiry() {
+export default function Contact() {
   return (
     <main>
       <CommonHero
-        title="Enquiry"
+        title="Contact Us"
         description="Get in touch with our team. We're here to answer your questions and discuss partnership opportunities."
       />
       <section className="py-10 lg:py-24">
@@ -16,7 +16,7 @@ export default function Enquiry() {
             <ContactSidebar />
           </div>
           <div className="col-span-2">
-            <EnquiryForm />
+            <ContactForm />
           </div>
         </div>
       </section>
