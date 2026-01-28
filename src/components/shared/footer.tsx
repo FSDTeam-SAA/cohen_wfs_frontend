@@ -111,7 +111,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/20 text-center">
           <p className="text-sm text-white/70">
-            © {currentYear} WITKLIP Farms. All rights reserved.
+            © {currentYear} WITKLIP Farm. All rights reserved.
           </p>
         </div>
       </div>
