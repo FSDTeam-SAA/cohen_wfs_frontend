@@ -138,7 +138,7 @@ export async function updateEnquiry(
   priority?: string,
 ) {
   try {
-    const response = await api.patch(`/enquiry/update-status/${enquiryId}`, {
+    const response = await api.patch(`/enquiry/${enquiryId}/status`, {
       status,
       priority,
     });
