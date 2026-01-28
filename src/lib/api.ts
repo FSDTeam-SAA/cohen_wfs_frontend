@@ -164,3 +164,26 @@ export async function exportEnquiries() {
     );
   }
 }
+
+// User enquiry API calls
+export async function submitEnquiry(data: {
+  fullName: string;
+  email: string;
+  phoneNumber: string;
+  companyName: string;
+  enquiryType: string;
+  location: string;
+  volumeRequired: string;
+  message: string;
+  productInterest: string;
+}) {
+  try {
+    const response = await api.post("/enquiry/us", data);
+    return response.data;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
+    throw new Error(
+      error.response?.data?.message || "Failed to submit enquiry",
+    );
+  }
+}
