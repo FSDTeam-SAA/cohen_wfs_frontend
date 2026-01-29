@@ -84,7 +84,7 @@ const Navbar = () => {
                   </SheetTitle>
                 </SheetHeader>
 
-                <div className="flex flex-col space-y-6 mt-10">
+                <div className="flex flex-col space-y-6 mt-2">
                   {navLinks.map((link) => (
                     <Link
                       key={link.name}
@@ -95,12 +95,14 @@ const Navbar = () => {
                       {link.name}
                     </Link>
                   ))}
-                  <Button
-                    className="bg-[#52A454] hover:bg-[#458e47] text-white w-full py-6 text-lg"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    Enquiry
-                  </Button>
+                  <Link href="/enquiry">
+                    <Button
+                      onClick={() => setIsOpen(false)}
+                      className="bg-[#52A454] hover:bg-[#458e47] text-white px-10 rounded-md font-semibold py-6"
+                    >
+                      Enquiry
+                    </Button>
+                  </Link>
                 </div>
               </SheetContent>
             </Sheet>

@@ -8,8 +8,6 @@ import React from "react";
 export default function Topbar() {
   const { data: sessionData } = useSession();
 
-  console.log("Session: ", sessionData);
-
   return (
     <div className="sticky top-0 border-b border-border h-24 px-12 flex justify-between items-center bg-white">
       {/* Logo Section */}
