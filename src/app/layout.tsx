@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description:
     "Manage your orders, track shipments, and configure products easily",
   verification: {
-    google: "5aa64b12fe239f49",
+    google: "9jKwmmUTezBeCrDpzxJtpDoj6pY-qVjU9-JtjkKm4h4",
   },
 };
 
